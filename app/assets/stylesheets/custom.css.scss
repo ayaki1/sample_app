@@ -115,6 +115,22 @@ footer {
   @include box_sizing;
 }
 
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
 /* sidebar */
 
 aside {
@@ -138,9 +154,4 @@ aside {
       margin-top: 0px;
     }
   }
-}
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
 }
