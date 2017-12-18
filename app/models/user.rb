@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
     def feed
-    Micropost.where("user_id = ?", id)
+    Micropost.from_users_followed_by(self)
   end
   
     def following?(other_user)
@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
     def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
+  
+  
          
          
   validates :name,  presence: true, length: { maximum: 50 }
