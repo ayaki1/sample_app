@@ -8,7 +8,9 @@ gem 'devise', '3.4.1'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'will_paginate-bootstrap', '1.0.1'
-
+gem 'carrierwave',             '0.10.0'
+gem 'mini_magick',             '3.8.0'
+gem 'fog',                     '1.36.0'
 group :development do
   gem 'sqlite3', '1.3.9'
 end
