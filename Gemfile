@@ -8,9 +8,8 @@ gem 'devise', '3.4.1'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'will_paginate-bootstrap', '1.0.1'
-gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
-gem 'fog',                     '1.36.0'
+gem "paperclip", "~> 4.2"
 group :development do
   gem 'sqlite3', '1.3.9'
 end
@@ -21,6 +20,7 @@ gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.1.2'
 gem 'turbolinks', '2.5.1'
 gem 'jbuilder', '1.5.3'
+
 
 group :doc do
   gem 'sdoc', '0.4.1', require: false

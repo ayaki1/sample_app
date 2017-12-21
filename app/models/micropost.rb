@@ -1,19 +1,25 @@
 class Micropost < ActiveRecord::Base
+  # ファイル用の属性を追加するhas_attached_fileメソッド
+  has_attached_file :image, 
+    styles: { medium: "200x150>", thumb: "50x50>" }
+    
   belongs_to :user
   default_scope -> { order('created_at DESC') }
+
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
-  validate  :picture_size
-  mount_uploader :picture, PictureUploader
-  
-    private
+  # validate  :picture_size
+  #  画像の拡張子を限定するためのvalidatorを定義
+  validates_attachment_content_type :image, content_type: %w(image/jpeg image/jpg image/png image/gif)
 
-    # アップロード画像のサイズを検証する
-    def picture_size
-      if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB")
-      end
-    end
+  private
+
+    # # アップロード画像のサイズを検証する
+    # def picture_size
+    #   if picture.size > 5.megabytes
+    #     errors.add(:picture, "should be less than 5MB")
+    #   end
+    # end
   
 
   def self.from_users_followed_by(user)
